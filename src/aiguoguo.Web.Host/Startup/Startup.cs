@@ -76,6 +76,12 @@ namespace aiguoguo.Web.Host.Startup
                 });
             });
 
+            //配置iis，部署到iis
+            services.Configure<IISOptions>(options =>
+            {
+                options.ForwardClientCertificate = false;
+            });
+
             // Configure Abp and Dependency Injection
             return services.AddAbp<aiguoguoWebHostModule>(
                 // Configure Log4Net logging
